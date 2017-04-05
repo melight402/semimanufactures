@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .box{
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border: 1px solid black;
+    }
+    .red{
+      background-color: red;
+    }
+    .blue{
+      background-color: blue;
+    }
+    .green{
+      background-color: green;
+    }
+    .yellow{
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div class="box red" style="backgroun:red"></div>
+  <div class="box blue" style="backgroun:blue"></div>
+  <div class="box green"></div>
+  <div class="box yellow"></div>
+  <script type="text/javascript">
+
+  function changeBGC() {
+    // проверка
+    var first = this;
+    if(first.nextElementSibling.classList.contains('box')){
+      var second = first.nextElementSibling;
+    }else{
+      var second = collection[0];
+    }
+    var color1 = getComputedStyle(first).background;
+    var color2 = getComputedStyle(second).background;
+    first.style.background = color2;
+    second.style.background = color1;
+    // var currentClass = this.classList[1];
+    // var secondClass = this.nextElementSibling.classList[1];
+    // this.classList.remove(currentClass);
+    // this.classList.add(secondClass);
+    // this.nextElementSibling.classList.remove(secondClass);
+    // this.nextElementSibling.classList.add(currentClass);
+    // ВАРИАНТ 2
+    // var color1 = this.style.background;
+    // var color2 = this.nextElementSibling.style.backgroun;
+    // this.style.background = color2;
+    // this.nextElementSibling.style.backgroun = color1;
+  }
+    var collection = document.getElementsByClassName('box');
+    for(var i= 0; i<collection.length; i++){
+      collection[i].addEventListener('click', changeBGC, false);
+    }
+  </script>
+</body>
+</html>

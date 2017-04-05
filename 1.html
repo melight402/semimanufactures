@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .tab{
+      display:none;
+    }
+    .tab.active{
+      display: block;
+    }
+    .tab-wrap li.active{
+      background-color: green;
+    }
+
+  </style>
+</head>
+<body>
+  <ul class="tab-wrap">
+    <li data-mem="home" class="active" onclick="tabs(this)">Home</li>
+    <li data-mem="catalog" onclick="tabs(this)" >Catalog</li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab active" id="home">Home</div>
+    <div class="tab" id="catalog">Catalog</div>
+  </div>
+  <script type="text/javascript">
+    function tabs(el) {
+      var tabCollection = document.getElementsByClassName('tab');
+      for(var i =0; i< tabCollection.length; i++){
+        tabCollection[i].classList.remove('active');
+      }
+      var tabsLiCollection = document.querySelectorAll('.tab-wrap li');
+      for(var i =0; i< tabsLiCollection.length; i++){
+        tabsLiCollection[i].classList.remove('active');
+      }
+      el.classList.add('active');
+      document.getElementById(el.getAttribute('data-mem')).classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script type="text/javascript">
+        function handler(e) {
+            while (true) {
+              console.log(e)
+                if (e.type == 'click') {
+                    move(e.clientY, e.clientX);
+                    break;
+                }
+                if (e.type == 'keydown') {
+
+                    if(e.keyCode > 36 && e.keyCode < 41){
+                      while(true){
+                        
+                        var style = getComputedStyle(box);
+                        if (e.keyCode == 37){
+                          // left
+
+                          move(parseInt(style.top),parseInt(style.left)-30);
+                          break;
+                        }else if (e.keyCode == 38){
+                          // top
+
+                          move(parseInt(style.top)-30,parseInt(style.left));
+                          break;
+                        }else if (e.keyCode == 39){
+                          // right
+
+                          move(parseInt(style.top),parseInt(style.left)+30);
+                          break;
+                        }else if (e.keyCode == 40){
+                          // bottom
+
+                          move(parseInt(style.top)+30,parseInt(style.left));
+                          break;
+                        }
+                      }
+                    }
+                    break;
+                }
+            }
+        }
+
+        function move(top, left) {
+            box.style.top = top + 'px';
+            box.style.left = left + 'px';
+        }
+        var box = document.getElementById('box');
+        var body = document.body;
+        document.addEventListener('click', handler);
+        document.addEventListener('keydown', handler);
+    </script>
+</body>
+
+</html>

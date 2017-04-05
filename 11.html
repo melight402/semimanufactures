@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+        li{
+            width: 100px;
+            height: auto;
+            border: 2px solid black;
+            background: yellow;
+            display: inline-table;
+            text-align: center;
+        }
+
+        .tab {
+            display: none;
+        }
+
+        .tab.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nav tabs -->
+    <ul id="ul">
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#profile">Профиль</a></li>
+        <li><a href="#messages">Сообщения</a></li>
+        <li><a href="#settings">Настройки</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div>
+        <div class="tab active" id="home">home</div>
+        <div class="tab" id="profile">profile</div>
+        <div class="tab" id="messages">messages</div>
+        <div class="tab" id="settings">settings</div>
+    </div>
+    <script>
+        function tabs(event) {
+            event.preventDefault;
+            var tabCollection = document.getElementsByClassName('tab');
+            for (var i = 0; i < tabCollection.length; i++) {
+                tabCollection[i].classList.remove('active');
+              }
+            var href = event.target.getAttribute('href');
+            var regEx = href.replace(/[^a-z]/i, '');
+            document.getElementById(regEx).classList.add('active');
+        }
+        var ul = document.getElementById("ul");
+        ul.addEventListener("click", tabs);
+    </script>
+</body>
+
+</html>

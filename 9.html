@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <style>
+    #box{
+      width: 100px;
+      height: 100px;
+      border: 2px solid black;
+    }
+    </style>
+</head>
+<body>
+  <div id="box" ></div>
+  <script type="text/javascript">
+
+  box.addEventListener('click', changeBGC);
+  box.addEventListener('mouseover', changeBGC);
+  box.addEventListener('mouseout', changeBGC);
+    function changeBGC(event) {
+      if(event.type == 'click'){
+        event.target.style.background = 'red'
+      }else if(event.type == 'mouseover'){
+        event.target.style.background = 'green'
+      }else if (event.type == 'mouseout') {
+    event.target.style.background = 'blue'
+      }
+      console.log(event.type);
+    }
+
+  </script>
+</body>
+</html>

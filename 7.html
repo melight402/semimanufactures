@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .elem{
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="elem"></div>
+  <script type="text/javascript">
+    // (el.onclick = function(event) {});
+    // // тоже самое что и
+    // el.addEventListener('click', function(event){});
+    // браузер при событии передает первым аргументом функции объект этого события,
+    // event или e, не важно как его записать, он останеться объектом события
+    // если он на первом месте в аргументах функции;
+    // elem.addEventListener('click', fun);
+    document.addEventListener('click', fun);
+    document.addEventListener('keypress', fun);
+    document.addEventListener('contextmenu', fun);
+
+    function fun(event) {
+      var obj  = {
+        1: event.target,
+        2: event.type,
+        //координаты относительно окна
+        3: event.clientX,
+        4: event.clientY,
+        // относительно страници
+        5: event.pageX,
+        6: event.pageY,
+
+        7: event.which,
+        // не использовать вил так как работает по разному в браузерах, это прокрутка колесом.
+        8: event.wheel,
+        9: event.keyCode,
+        10: event.which,
+        11: event.charCode,
+        12: event.charCode,
+        13: event.char,
+      }
+
+      console.log(obj);
+      event.preventDefault();
+    }
+  </script>
+</body>
+</html>

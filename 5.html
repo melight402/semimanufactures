@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img src="/img/png1.png" class="first" alt="">
+  <a href="google.com">Google</a>
+  <input type="text" name="" value="querty">
+  <script type="text/javascript">
+    var img = document.getElementsByTagName('img');
+    var png1 = img[0].src; //возвращает абсолютный путь src & href
+    var png = img[0].getAttribute(src) // вернет содержимое, а не абсолютный путь
+    // node - конкретный елемент, не document а например img[0]
+    var first = img[0].className;
+
+  </script>
+</body>
+</html>

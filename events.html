@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+  <button id="but1"></button>
+  <button id="but2"></button>
+  <button id="but3"></button>
+  <button id="but4"></button>
+  <script type="text/javascript">
+  mouse event{
+     click{
+       mousedown
+       mouseup
+     }
+     contextmenu
+     mousemove
+     mouseover
+   }
+   keybord{
+     keypress{
+       keydown
+       keyup
+     }
+    }
+  window{
+    resize
+    load
+  }
+  form{
+    submit
+    reset
+  }
+  input{
+    focus
+    change
+   } 
+  1) <button onclick="fun()"></button> - перехват события через аргумент
+  2) var b = document.getElementById('button'); b.onckick = function fun(){}; - через свойство
+  3) document.getElementsById('input').onkeyup = function(){}
+  4) b.addEventListener('click', fun, false); - через слушатель, можно повестить много функций
+  5) b.remuveEventListener('mouseover',fun); - удаление функции при событии
+  6) function fun(){ this.getAttribute('id'); }
+  var collection = document.getElementsByTagName('button')
+  for(var i = 0; i> collection.length; i++){
+    collection[i].addEventListener( 'click', fun)
+   };
+  </script>
+ </body>
+</html>
